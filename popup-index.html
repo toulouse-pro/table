@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mon Commerce – Réserver</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#fff;
+      --accent:#d99a3b;
+      --muted:#6b6b6b;
+      --radius:10px;
+      --shadow:0 6px 22px rgba(0,0,0,0.08);
+    }
+
+    body {
+      margin:0;
+      font-family:Inter, system-ui, sans-serif;
+      background:var(--bg);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+    }
+
+    /* ===== Topbar ===== */
+    .topbar {
+      position: fixed;
+      top:0; left:0; right:0;
+      background:var(--bg);
+      box-shadow:var(--shadow);
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      padding:12px;
+      z-index:1000;
+    }
+
+    .btn {
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:10px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:600;
+      text-decoration:none;
+      box-shadow:0 6px 18px rgba(217,154,59,0.18);
+      transition:background 0.2s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover {
+      background:#c6882f;
+    }
+
+    main {
+      padding-top:100px;
+      text-align:center;
+    }
+
+    /* ===== Shared Modal Styles ===== */
+    .menu-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .menu-modal.active {
+      display: flex;
+    }
+
+    .menu-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      max-width: 700px;
+      width: 100%;
+      padding: 24px;
+      position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .menu-content h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 1.4rem;
+      margin-top: 0;
+    }
+
+    .close-menu {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 1.6rem;
+      position: absolute;
+      top: 16px;
+      right: 22px;
+      cursor: pointer;
+    }
+
+    /* ===== Platform Grid ===== */
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .platform {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 120px;
+    }
+
+    .platform strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    .platform p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <a href="#" class="btn" id="openMenu">Menu</a>
+    <a href="#" class="btn" id="openReserver">Réserver</a>
+    <a href="index.html" class="btn">Retour à l’Accueil</a>
+  </div>
+
+  <main>
+    <h1>Bienvenue sur Mon Commerce</h1>
+    <p>Cliquez sur “Réserver” pour voir quelques suggestions de plateformes.</p>
+  </main>
+
+  <footer>
+    © Mon Commerce — Tous droits réservés
+  </footer>
+
+  <!-- ===== MENU MODAL ===== -->
+  <div class="menu-modal" id="menuModal" aria-hidden="true">
+    <div class="menu-content">
+      <button class="close-menu" id="closeMenu" aria-label="Fermer le menu">&times;</button>
+      <h2>Menu</h2>
+      <p>Ici, vous pouvez placer les liens habituels de navigation (Accueil, À propos, Contact, etc.).</p>
+    </div>
+  </div>
+
+  <!-- ===== RÉSERVER MODAL ===== -->
+  <div class="menu-modal" id="reserverModal" aria-hidden="true">
+    <div class="menu-content">
+      <button class="close-menu" id="closeReserver" aria-label="Fermer la fenêtre">&times;</button>
+      <h2>Réserver</h2>
+      <p class="muted">Suggestions de quelques plateformes de réservation ci-dessous :</p>
+
+      <div class="platforms-grid">
+        <div class="platform"><strong>Sunday</strong><p>Paiement et réservation simplifiés pour restaurants modernes.</p></div>
+        <div class="platform"><strong>L’Addition Réservation</strong><p>Outil complet de gestion et réservation pour restaurateurs.</p></div>
+        <div class="platform"><strong>Zenchef</strong><p>Solution intuitive pour gérer les réservations et fidéliser vos clients.</p></div>
+        <div class="platform"><strong>TheFork</strong><p>Plateforme populaire pour gérer les réservations et la visibilité en ligne.</p></div>
+        <div class="platform"><strong>Guestonline</strong><p>Solution indépendante pour la gestion des réservations et des tables.</p></div>
+        <div class="platform"><strong>ResaEazy</strong><p>Outil léger et flexible pour la prise de réservations en ligne.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuModal = document.getElementById("menuModal");
+    const reserverModal = document.getElementById("reserverModal");
+
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const openReserver = document.getElementById("openReserver");
+    const closeReserver = document.getElementById("closeReserver");
+
+    openMenu.onclick = e => { e.preventDefault(); menuModal.classList.add("active"); };
+    closeMenu.onclick = () => menuModal.classList.remove("active");
+
+    openReserver.onclick = e => { e.preventDefault(); reserverModal.classList.add("active"); };
+    closeReserver.onclick = () => reserverModal.classList.remove("active");
+
+    window.onclick = e => {
+      if (e.target === menuModal) menuModal.classList.remove("active");
+      if (e.target === reserverModal) reserverModal.classList.remove("active");
+    };
+  </script>
+
+</body>
+</html>
