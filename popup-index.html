@@ -600,7 +600,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <!-- Réserver Modal -->
 <div class="menu-modal" id="reserverModal" aria-hidden="true">
-  <div class="menu-content reserver-content">
+  <div class="menu-content">
     <button class="close-menu" id="closeReserver" aria-label="Fermer le popup">&times;</button>
     <h2>Réserver</h2>
     <p class="muted">Suggestions de quelques plateformes de réservation ci-dessous.</p>
@@ -647,31 +647,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- RÉSERVER MODAL ----------
-  const openReserverBtn = document.getElementById('openReserver');
-  const closeReserverBtn = document.getElementById('closeReserver');
-  const reserverModal = document.getElementById('reserverModal');
+ // ---------- RÉSERVER MODAL ----------
+const openReserverBtn = document.getElementById('openReserver');
+const closeReserverBtn = document.getElementById('closeReserver');
+const reserverModal = document.getElementById('reserverModal');
 
-  if (openReserverBtn && reserverModal && closeReserverBtn) {
-    openReserverBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      reserverModal.style.display = 'flex';
-      reserverModal.setAttribute('aria-hidden', 'false');
-    });
+if (openReserverBtn && reserverModal && closeReserverBtn) {
+  openReserverBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    reserverModal.style.display = 'flex';
+    reserverModal.setAttribute('aria-hidden', 'false');
+  });
 
-    closeReserverBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
+  closeReserverBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    reserverModal.style.display = 'none';
+    reserverModal.setAttribute('aria-hidden', 'true');
+  });
+
+  reserverModal.addEventListener('click', (e) => {
+    if (e.target === reserverModal) {
       reserverModal.style.display = 'none';
       reserverModal.setAttribute('aria-hidden', 'true');
-    });
-
-    reserverModal.addEventListener('click', (e) => {
-      if (e.target === reserverModal) {
-        reserverModal.style.display = 'none';
-        reserverModal.setAttribute('aria-hidden', 'true');
-      }
-    });
-  }
+    }
+  });
+}
 });
 </script>
   
