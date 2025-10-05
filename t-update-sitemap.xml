@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Page principale -->
+    <url>
+        <loc>https://example.com/</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <!-- Liens d'ancrage pour les sections (optionnels pour un site à page unique) -->
+    <url>
+        <loc>https://example.com/#avis</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://example.com/#horaires</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://example.com/#photos</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://example.com/#menu</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://example.com/#carte</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://example.com/#contact</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Instructions pour personnaliser le sitemap.xml -->
+    <!-- 1. Remplacez "https://example.com" par l'URL réelle de votre site (ex. https://www.moncommerce.com). -->
+    <!-- 2. Mettez à jour <lastmod> avec la date de finalisation de votre site (format : AAAA-MM-JJ, ex. 2025-10-02). -->
+    <!-- 3. Conservez <changefreq> à "yearly" car le site ne sera pas mis à jour. -->
+    <!-- 4. Conservez <priority> à 1.0 pour la page principale et 0.8 pour les sections, ou ajustez selon l'importance. -->
+    <!-- 5. Si vous ajoutez d'autres pages (ex. about.html), incluez une nouvelle balise <url> pour chaque page. -->
+    <!-- 6. Les ancres (#avis, #horaires, etc.) sont optionnelles. Supprimez-les si vous ne souhaitez pas les indexer. -->
+    <!-- 7. Hébergez ce fichier à la racine de votre site (ex. https://www.moncommerce.com/sitemap.xml) et soumettez-le à Google Search Console. -->
+</urlset>
