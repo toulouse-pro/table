@@ -3,169 +3,194 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Plateformes de réservation</title>
-  <meta name="description" content="Suggestions de quelques plateformes de réservation utilisées dans la restauration." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Plateformes de Réservation – Mon Commerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --accent:#d99a3b;
-      --bg:#ffffff;
-      --muted:#555;
+    :root {
+      --bg:#fff;
+      --accent:#d99a3b; /* couleur miel */
+      --muted:#6b6b6b;
       --radius:10px;
-      --shadow:0 6px 18px rgba(0,0,0,0.06);
-      --max-width:950px;
+      --shadow:0 6px 22px rgba(0,0,0,0.08);
     }
-    body{
+
+    body {
       margin:0;
-      font-family:'Inter',sans-serif;
+      font-family:Inter, system-ui, sans-serif;
       background:var(--bg);
       color:#111;
       -webkit-font-smoothing:antialiased;
       line-height:1.5;
     }
-    /* Top bar minimaliste */
-    .topbar{
-      position:fixed;
+
+    /* ===== Topbar with return button ===== */
+    .topbar {
+      position: fixed;
       top:0; left:0; right:0;
       background:var(--bg);
       box-shadow:var(--shadow);
-      padding:12px 18px;
-      text-align:center;
-      z-index:100;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      display:flex;
+      justify-content:center;
+      padding:12px;
+      z-index:1000;
     }
-    .btn-home{
+
+    .btn {
       display:inline-block;
+      padding:10px 18px;
+      border-radius:10px;
       background:var(--accent);
       color:#fff;
       font-weight:600;
-      padding:8px 14px;
-      border-radius:8px;
       text-decoration:none;
+      box-shadow:0 6px 18px rgba(217,154,59,0.18);
       transition:background 0.2s ease;
     }
-    .btn-home:hover{ background:#c3882e; }
 
-    main{
-      max-width:var(--max-width);
-      margin:100px auto 60px;
+    .btn:hover {
+      background:#c6882f;
+    }
+
+    /* ===== Layout ===== */
+    .container {
+      max-width:800px;
+      margin:100px auto 50px;
       padding:0 20px;
     }
 
-    .section{
+    section {
+      margin-bottom:22px;
+      padding:22px;
+      border-radius:12px;
       background:#fff;
-      border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:24px;
-      margin-bottom:20px;
     }
-    .section h1, .section h2{
-      font-family:'Playfair Display',serif;
-      margin-top:0;
-      color:#222;
-    }
-    .section p{ margin:0; color:var(--muted); }
 
-    .grid{
+    .section-title {
+      font-family:'Playfair Display',serif;
+      font-size:1.3rem;
+      margin-bottom:12px;
+    }
+
+    .muted {
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* ===== Grid for platforms ===== */
+    .platforms-grid {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
-      margin-top:12px;
+      gap:14px;
     }
 
-    .card{
+    .platform {
       background:#fff;
-      border-radius:var(--radius);
-      box-shadow:0 6px 16px rgba(0,0,0,0.05);
+      border:1px solid rgba(0,0,0,0.05);
+      border-radius:10px;
+      box-shadow:var(--shadow);
       padding:16px;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      height:120px; /* uniform size */
     }
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 10px 22px rgba(0,0,0,0.08);
-    }
-    .card h3{
-      margin:0 0 6px;
+
+    .platform strong {
       font-family:'Playfair Display',serif;
       font-size:1rem;
+      color:#111;
+      margin-bottom:6px;
     }
-    .card p{
-      font-size:0.93rem;
+
+    .platform p {
+      font-size:0.9rem;
       color:var(--muted);
       margin:0;
     }
 
-    footer{
+    footer {
       text-align:center;
       color:var(--muted);
       font-size:0.9rem;
-      margin-top:28px;
+      margin-top:40px;
     }
 
-    @media (max-width:600px){
-      main{margin-top:90px; padding:0 12px;}
-    }
   </style>
 </head>
 <body>
 
+  <!-- ===== TOP BUTTON ===== -->
   <div class="topbar">
-    <a href="index.html" class="btn-home">Retour à l’accueil</a>
+    <a href="index.html" class="btn">Retour à l’Accueil</a>
   </div>
 
-  <main>
-    <section class="section">
-      <h1>Plateformes de réservation</h1>
-      <p>Suggestions de quelques plateformes de réservation ci-dessous.</p>
+  <main class="container">
+
+    <!-- ===== INTRO ===== -->
+    <section>
+      <h2 class="section-title">Plateformes de réservation</h2>
+      <p class="muted">Suggestions de quelques plateformes de réservation ci-dessous.</p>
     </section>
 
-    <section class="section">
-      <div class="grid">
-        <div class="card">
-          <h3>TheFork</h3>
-          <p>Permet aux clients de réserver une table en ligne et de consulter les disponibilités en temps réel.</p>
+    <!-- ===== PLATFORMS LIST ===== -->
+    <section>
+      <div class="platforms-grid">
+
+        <div class="platform">
+          <strong>Sunday</strong>
+          <p>Solution moderne pour encaisser et gérer les réservations en toute simplicité.</p>
         </div>
-        <div class="card">
-          <h3>Zenchef</h3>
-          <p>Propose un système de réservation et d’organisation des tables intégré pour les établissements.</p>
+
+        <div class="platform">
+          <strong>L’Addition</strong>
+          <p>Outil complet pour gérer réservations, tables et paiements depuis une seule interface.</p>
         </div>
-        <div class="card">
-          <h3>Guestonline</h3>
-          <p>Outil de gestion des réservations et du plan de salle, avec notifications et suivi des clients.</p>
+
+        <div class="platform">
+          <strong>TheFork</strong>
+          <p>Plateforme populaire pour recevoir des réservations et gagner en visibilité.</p>
         </div>
-        <div class="card">
-          <h3>L’Addition Réservation</h3>
-          <p>Intègre la prise de réservation avec la gestion du service et du paiement.</p>
+
+        <div class="platform">
+          <strong>Zenchef</strong>
+          <p>Solution tout-en-un pour la gestion de la clientèle et des réservations en ligne.</p>
         </div>
-        <div class="card">
-          <h3>Sunday</h3>
-          <p>Facilite la commande et le paiement à table grâce à des QR codes et outils numériques.</p>
+
+        <div class="platform">
+          <strong>Guestonline</strong>
+          <p>Outil flexible pour optimiser le remplissage et suivre les réservations facilement.</p>
         </div>
-        <div class="card">
-          <h3>Tock</h3>
-          <p>Plateforme de réservation avec prépaiement possible pour des expériences ou menus spécifiques.</p>
+
+        <div class="platform">
+          <strong>Resy</strong>
+          <p>Interface intuitive pour planifier les tables et améliorer l’expérience client.</p>
         </div>
-        <div class="card">
-          <h3>OpenTable</h3>
-          <p>Permet aux clients de découvrir et réserver facilement des restaurants depuis une application.</p>
+
+        <div class="platform">
+          <strong>SevenRooms</strong>
+          <p>Plateforme complète pour gérer réservations, fidélisation et données clients.</p>
         </div>
-        <div class="card">
-          <h3>Quandoo</h3>
-          <p>Centralise les réservations en ligne et offre des outils de gestion pour les restaurateurs.</p>
+
+        <div class="platform">
+          <strong>OpenTable</strong>
+          <p>Outil de gestion internationale pour accepter et suivre les réservations.</p>
         </div>
-        <div class="card">
-          <h3>Resengo</h3>
-          <p>Gère les réservations, confirmations et rappels automatiques pour optimiser le remplissage.</p>
+
+        <div class="platform">
+          <strong>TableOnline</strong>
+          <p>Service simple pour gérer les disponibilités et les confirmations de réservation.</p>
         </div>
-        <div class="card">
-          <h3>Réserver avec Google</h3>
-          <p>Permet de réserver directement depuis la fiche Google d’un établissement partenaire.</p>
-        </div>
+
       </div>
     </section>
 
     <footer>
-      © Page d’information — Plateformes de réservation
+      © Mon Commerce — Tous droits réservés
     </footer>
+
   </main>
 
 </body>
