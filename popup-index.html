@@ -205,20 +205,14 @@ img:not(.popup-img) {
 /* --- CTA Buttons --- */
 .cta-row {
   display: flex;
-  gap: 0;           /* no gap between buttons */
+  gap: 12px;        /* space between buttons */
   margin-top: 18px;
 }
 
 .cta-row .btn {
-  flex: 1 1 50%;    /* exactly half of the row each */
+  flex: 1 1 calc(50% - 6px); /* 50% minus half the gap */
   text-align: center;
   box-sizing: border-box;
-  border-radius: 0;  /* optional: remove rounded edges for flush look */
-  border-right: 1px solid rgba(255,255,255,0.2); /* optional: subtle separator */
-}
-
-.cta-row .btn:last-child {
-  border-right: none; /* remove border on last button */
 }
 
 /* --- Menu Modal Styling --- */
@@ -315,7 +309,6 @@ img:not(.popup-img) {
         <p class="lead">Produits et services de qualité, conçus avec passion et savoir-faire — votre satisfaction au cœur de notre engagement depuis 1907.</p>
         </div>
 
-<!-- Replace this line inside your CTA row -->
 <div class="cta-row">
   <a href="#" class="btn secondary" id="openMenu">Menu</a>
   <a href="#" class="btn secondary" id="openReserver">Réserver</a>
