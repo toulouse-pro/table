@@ -209,6 +209,21 @@ img:not(.popup-img) {
   margin-top: 18px;
 }
 
+    .cta-row .btn {
+  flex: 1 1 50%; /* take 50% width each */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+  .cta-row {
+    flex-direction: column;
+  }
+  .cta-row .btn {
+    flex: 1 1 100%; /* stack on small screens */
+  }
+}
+
 /* --- Menu Modal Styling --- */
 .menu-modal {
   position: fixed;
