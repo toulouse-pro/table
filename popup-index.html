@@ -621,12 +621,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // ---------- MENU MODAL ----------
+
+  // --- MENU MODAL ---
   const openMenuBtn = document.getElementById('openMenu');
   const closeMenuBtn = document.getElementById('closeMenu');
   const menuModal = document.getElementById('menuModal');
 
-  if (openMenuBtn && menuModal && closeMenuBtn) {
+  if (openMenuBtn && closeMenuBtn && menuModal) {
     openMenuBtn.addEventListener('click', (e) => {
       e.preventDefault();
       menuModal.style.display = 'flex';
@@ -647,31 +648,32 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
- // ---------- RÉSERVER MODAL ----------
-const openReserverBtn = document.getElementById('openReserver');
-const closeReserverBtn = document.getElementById('closeReserver');
-const reserverModal = document.getElementById('reserverModal');
+  // --- RÉSERVER MODAL ---
+  const openReserverBtn = document.getElementById('openReserver');
+  const closeReserverBtn = document.getElementById('closeReserver');
+  const reserverModal = document.getElementById('reserverModal');
 
-if (openReserverBtn && reserverModal && closeReserverBtn) {
-  openReserverBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    reserverModal.style.display = 'flex';
-    reserverModal.setAttribute('aria-hidden', 'false');
-  });
+  if (openReserverBtn && closeReserverBtn && reserverModal) {
+    openReserverBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      reserverModal.style.display = 'flex';
+      reserverModal.setAttribute('aria-hidden', 'false');
+    });
 
-  closeReserverBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    reserverModal.style.display = 'none';
-    reserverModal.setAttribute('aria-hidden', 'true');
-  });
-
-  reserverModal.addEventListener('click', (e) => {
-    if (e.target === reserverModal) {
+    closeReserverBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       reserverModal.style.display = 'none';
       reserverModal.setAttribute('aria-hidden', 'true');
-    }
-  });
-}
+    });
+
+    reserverModal.addEventListener('click', (e) => {
+      if (e.target === reserverModal) {
+        reserverModal.style.display = 'none';
+        reserverModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
 });
 </script>
   
