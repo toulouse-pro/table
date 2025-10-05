@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❤️ Offre</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --accent: #e53935; /* rouge principal */
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --max-width: 700px; /* largeur uniforme pour cartes et bouton */
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--bg);
+      color: #111;
+      line-height: 1.2;
+    }
+
+    /* Bouton retour */
+    .top-btn {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: block;
+      margin: 0 auto 16px auto;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: #fff;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      text-align: center;
+      transition: background 0.3s, transform 0.2s;
+      width: var(--max-width);
+      max-width: 80%;
+    }
+   /* .top-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.02);
+    }*/
+    .top-btn::before {
+      content: "←";
+      color: #fff; /* flèche blanche */
+      -webkit-text-stroke: 1px var(--accent); /* contour rouge */
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+
+    /* Conteneur */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+    }
+
+    /* Cartes pricing */
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      animation: slideUp 0.6s ease;
+
+      width: var(--max-width);
+      max-width: 85%;
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin: 0 0 4px 0;
+      color: var(--accent);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin: 0 0 6px 0;
+      color: #333;
+    }
+
+    .card p {
+      color: #555;
+      margin: 4px 0;
+      font-size: 0.92rem;
+      line-height: 1.3;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(15px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .top-btn {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+      .card h2 { font-size: 1.2rem; }
+      .card h3 { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bouton retour -->
+  <a href="index.html" class="top-btn">Retour au Site</a>
+
+  <!-- Cartes pricing -->
+  <div class="container">
+    <div class="card">
+      <h2>100€</h2>
+      <h3>J’achète ce site !</h3>
+<p>Un paiement unique</p>
+<p>Aucun autre coût / frais / cotisation</p>
+<p>Le site entier vous appartient</p>
+<p>Inclus : Hébergement</p>
+<p>Inclus : Personnalisation de chaque section</p>
+<p>Inclus : Insertion de 5 photos que vous fournissez</p>
+<p>Inclus : Certificat SSL</p>
+<p>Inclus : SEO / référencement initial</p>
+<p>Inclus : Nom d'utilisateur et mot de passe d’accès au site et détenus par vous uniquement</p>
+<p>Aucune pub indésirable sur votre site</p>
+<p>Quelque chose de caché ? Rien du tout !</p>
+</div>
+
+     <div class="card">
+      <h2>⚠️</h2>
+      <h3>Avertissement</h3>
+      <p>La plateforme de réservation n’est pas fournie, uniquement le bouton qui renvoie vers la plateforme de réservation de votre choix.</p>
+    </div>
+
+    <div class="card">
+      <h2>+50€</h2>
+      <h3>Option : Photographe</h3>
+      <p>Un photographe expérimenté passe chez vous 45 minutes et prend jusqu'à 11 superbes photos qui seront ajoutées sur votre site</p>
+    </div>
+
+     <div class="card">
+      <h2>0€</h2>
+      <h3>Google Maps</h3>
+      <p>Ajout gratuit de votre site sur Google Maps si vous le désirez</p>
+    </div>
+
+     <div class="card">
+      <h2>0€</h2>
+      <h3>Si vous avez un .fr / .com</h3>
+      <p>Transfert gratuit de votre site vers le nom de domain de votre choix si vous le désirez *</p>
+      <p>* L'achat du nom de domaine n'est pas inclus</p>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <h3>Prêt à faire affaire ?</h3>
+      <p>Préparez vos personnalisations : titres, textes, 5 photos (sauf si vous choisissez l’option photographe), horaires, adresse, coordonnées, liens réseaux sociaux, avis clients et mots-clés (pour le SEO / référencement).</p>
+      <p>Pour la suite, cliquez le cœur → <a href="form.html" style="text-decoration: none;">💚</a></p>
+
+     <!-- <p>Contactez-moi par SMS, téléphone ou e-mail pour finaliser votre commande.</p>
+      <p>Didier:</p>
+      <p>Tel / email</p> -->
+    </div>
+
+    <div class="card">
+      <h2>FAQ</h2>
+      <h3>⁉️</h3>
+      <p>Si je n'ai pas de nom de domaine ?<br><i>Le site utilise une addresse gratuite. L'achat d'un nom de domaine est facultatif</i></p>
+      <p>Cette offre parait trop belle pour être vraie ?<br><i>Ce sont les autres qui sont trop chers !</i></p>
+      <p>Mes données personnelles sont-elles protégées ?<br><i>L’hébergement ne stocke que ce qui est déjà visible sur votre site (selon vos choix). Il n’y a aucun risque de compromission de la sécurité.</i></p>
+    </div>
+  </div>
+
+</body>
+</html>
