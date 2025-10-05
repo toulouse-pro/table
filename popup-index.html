@@ -205,23 +205,20 @@ img:not(.popup-img) {
 /* --- CTA Buttons --- */
 .cta-row {
   display: flex;
-  gap: 12px;
+  gap: 0;           /* no gap between buttons */
   margin-top: 18px;
 }
 
-    .cta-row .btn {
-  flex: 1 1 50%; /* take 50% width each */
+.cta-row .btn {
+  flex: 1 1 50%;    /* exactly half of the row each */
   text-align: center;
   box-sizing: border-box;
+  border-radius: 0;  /* optional: remove rounded edges for flush look */
+  border-right: 1px solid rgba(255,255,255,0.2); /* optional: subtle separator */
 }
 
-@media (max-width: 500px) {
-  .cta-row {
-    flex-direction: column;
-  }
-  .cta-row .btn {
-    flex: 1 1 100%; /* stack on small screens */
-  }
+.cta-row .btn:last-child {
+  border-right: none; /* remove border on last button */
 }
 
 /* --- Menu Modal Styling --- */
