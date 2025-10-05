@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💚 Formulaire</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --accent: green;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --max-width: 700px; /* largeur uniforme pour cartes et bouton */
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--bg);
+      color: #111;
+      line-height: 1.2;
+    }
+
+    /* Bouton retour */
+    .top-btn {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: block;
+      margin: 0 auto 16px auto;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: #fff;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      text-align: center;
+      transition: background 0.3s, transform 0.2s;
+      width: var(--max-width);
+      max-width: 80%;
+    }
+ 
+    .top-btn::before {
+      content: "←";
+      color: #fff; /* flèche blanche */
+      -webkit-text-stroke: 1px var(--accent); /* contour rouge */
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+
+    /* Conteneur */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+    }
+
+    /* Cartes pricing */
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      animation: slideUp 0.6s ease;
+
+      width: var(--max-width);
+      max-width: 85%;
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin: 0 0 4px 0;
+      color: var(--accent);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin: 0 0 6px 0;
+      color: #333;
+    }
+
+    .card p {
+      color: #555;
+      margin: 4px 0;
+      font-size: 0.92rem;
+      line-height: 1.3;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .cardt {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      animation: slideUp 0.6s ease;
+
+      width: var(--max-width);
+      max-width: 85%;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(15px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .top-btn {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+      .card h2 { font-size: 1.2rem; }
+      .card h3 { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bouton retour -->
+  <a href="deal.html" class="top-btn">Retour à l'Offre</a>
+
+  <div class="container">
+    <div class="card">
+      <h2>Commande</h2>
+      <h3>Etapes :</h3>
+      <p style="text-align: left;">1. Remplissez la table ci-dessous</p>
+      <p style="text-align: left;">2. Envoyez-la : <a href="mailto:didier08018@gmail.com"<span id="email-text">didier08018@gmail.com</span></a>
+              <i class="fa-regular fa-clone" id="copy-icon" style="cursor: pointer; margin-left: 8px;" title="Copy to clipboard"></i>
+              <span id="copied-popup" style="display:none; margin-left: 10px; color: blue; font-size: 0.8rem;">Copié !</span>
+      <p style="text-align: left;">3. Vous payez quand le site est terminé
+      <h3>Note :</h3>
+      <!--<p style="text-align: center;"><strong>Note :</strong>-->
+<p style="text-align: left;">- Si vous prenez l'option photographe, contactez-moi pour un rendez-vous</p>
+<p style="text-align: left;">- Les 50€ sont dûs au photographe à la fin de la session photo</p>
+<p style="text-align: left;">- Contactez-moi par SMS ou téléphone si vous préférez — 07 45 18 65 79</p>
+    </div>
+    
+    <div class="card">
+       <h2>Personalisation</h2>
+      <h3>Table à remplir</h3>
+      <p>Téléchargez, remplissez, et envoyez-moi la table... Votre travail est terminé !</p>
+</div>
+
+    <div class="cardt">
+<div style="max-width:700px;overflow-x:auto;border:1px solid #ccc;padding:12px;margin:20px 0;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+  <table border="1" id="customTable" style="border-collapse:collapse;width:100%;min-width:600px;font-family:Arial, sans-serif;">
+    <thead style="text-align:center;background:#f5f5f5;">
+      <tr>
+        <th style="width:5%;"></th>
+        <th style="width:55%;">Éléments à personnaliser</th>
+        <th style="width:40%;">Votre personnalisation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Personalisation rows -->
+      <tr><td>1</td><td>Mon Commerce</td><td></td></tr>
+      <tr><td>2</td><td>Ma Spécialité — Toulouse</td><td></td></tr>
+      <tr><td>3</td><td>Photo 1</td><td></td></tr>
+      <tr><td>4</td><td>Produits et services de qualité, conçus avec passion et savoir-faire — votre satisfaction au cœur de notre engagement depuis 1907.</td><td></td></tr>
+      <tr><td>5</td><td><a style="text-decoration:none;">contact@example.com</a></td><td></td></tr>
+      <tr><td>6</td><td>Avis clients 1</td><td></td></tr>
+      <tr><td>7</td><td>Avis clients 2</td><td></td></tr>
+      <tr><td>8</td><td>Avis clients 3</td><td></td></tr>
+      <tr><td>9</td><td>Avis clients 4</td><td></td></tr>
+      <tr><td>10</td><td>Bienvenue dans ma boutique !</td><td></td></tr>
+      <tr><td>11</td><td>Photo 2</td><td></td></tr>
+      <tr><td>12</td><td>Nous sommes ravis de vous accompagner et de répondre à vos besoins avec attention et professionnalisme.</td><td></td></tr>
+      <tr><td>13</td><td>Horaires</td><td></td></tr>
+      <tr><td>14</td><td>Fermé les jours fériés — Spécialités sur commande.</td><td></td></tr>
+      <tr><td>15</td><td>Notre Sélection</td><td></td></tr>
+      <tr><td>16</td><td>Photo 3</td><td></td></tr>
+      <tr><td>17</td><td>Photo 4</td><td></td></tr>
+      <tr><td>18</td><td>Photo 5</td><td></td></tr>
+      <tr><td>19</td><td>Spécialités</td><td></td></tr>
+      <tr><td>20</td><td>Choisissez vos favoris</td><td></td></tr>
+      <tr><td>21</td><td>Nos Produits Phares<br>Produit classique, Produit complet, Produit traditionnel.</td><td></td></tr>
+      <tr><td>22</td><td>Nos Spécialités<br>Spécialité maison, Spécialité populaire, Spécialité artisanale.</td><td></td></tr>
+      <tr><td>23</td><td>Services sur mesure<br>Prestations adaptées, Solutions personnalisées, Créations exclusives (sur commande).</td><td></td></tr>
+      <tr><td>24</td><td>Adresse</td><td></td></tr>
+      <tr><td>25</td><td>Téléphone</td><td></td></tr>
+      <tr><td>26</td><td>Réseaux Sociaux</td><td></td></tr>
+      <tr><td>27</td><td>© Mon Commerce Spécialisé — Tous droits réservés — Site développé avec ❤️</td><td></td></tr>
+
+      <!-- SEO / Référencement rows -->
+      <tr><td></td><td>Ci-dessous la partie SEO / Référencement<br>Les métadonnées SEO (titre, description, etc.) sont intégrées dans le code HTML sans apparaître visuellement sur la page, mais elles sont déterminantes pour le référencement → Choisissez bien !</td><td></td></tr>
+      <tr><td>28</td><td>Titre de la page : clarté avant tout : le titre doit dire immédiatement de quoi parle la page. 60 caractères max. Inclure votre mot-clé principal.</td><td></td></tr>
+      <tr><td>29</td><td>Description concise de votre page, riche en mots-clés (environ 160 caractères).</td><td></td></tr>
+      <tr><td>30</td><td>Mots-clés : 5 à 10 mots-clés représentatifs de votre activité (répéter les mêmes mots-clés que dans la description n'est pas un problème, cela renforce l’essence de la page).</td><td></td></tr>
+      <tr><td>31</td><td>Nom commercial de l'entreprise</td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== DOWNLOAD BUTTON ===== -->
+<div style="display:flex; justify-content:center; margin:10px 0;">
+  <button id="downloadTable" style="padding:8px 14px; border-radius:6px; background:green; color:white; border:none; cursor:pointer; font-weight:600;">
+    Télécharger CSV
+  </button>
+</div>
+</div>
+
+     <div class="card">
+      <h2>Merci !</h2>
+      <h3>Et avant de partir :</h3>
+      <p>"Plus je travaille, plus j’ai de chance.”</p>
+       <p><strong>- Thomas Jefferson</strong></p> 
+    </div>
+
+     <div class="card">
+      <p><a href="index.html" style="text-decoration: none;">💜</a></span></p>
+    </div>
+
+   <!-- <div class="card">
+      <h2>Contact</h2>
+      <h3>Prêt à faire affaire ?</h3>
+      <p>Préparez vos personnalisations : titres, textes, 5 photos (sauf si vous choisissez l’option Photographe), horaires, adresse, coordonnées, liens réseaux sociaux, avis clients et mots-clés (pour le SEO / référencement).</p>
+      <p>Pour la suite, cliquez le cœur → <a href="form.html" style="text-decoration: none;">❤️</a></p>
+
+    <div class="card">
+      <h2>FAQ</h2>
+      <h3>⁉️</h3>
+      <p>Si je n'ai pas de nom de domaine ?<br><i>Le site utilise une addresse gratuite. L'achat d'un nom de domaine est facultatif</i></p>
+      <p>Cette offre parait trop belle pour être vraie ?<br><i>Ce sont les autres qui sont trop chers !</i></p>
+      <p>Mes données personnelles sont-elles protégées ?<br><i>L’hébergement ne stocke que ce qui est déjà visible sur votre site (selon vos choix). Il n’y a aucun risque de compromission de la sécurité.</i></p>
+    </div>-->
+  </div>
+
+<script>
+document.getElementById('downloadTable').addEventListener('click', function() {
+  const table = document.getElementById('customTable');
+  let csv = [];
+  for (let row of table.rows) {
+    let cols = [];
+    for (let cell of row.cells) {
+      // Escape quotes
+      let text = cell.innerText.replace(/"/g,'""');
+      cols.push(`"${text}"`);
+    }
+    csv.push(cols.join(','));
+  }
+  const blob = new Blob([csv.join("\n")], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'tableau_personnalisation.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+</script>
+
+  <script>
+      // ---------- CONTACT EMAIL COPY ----------
+  const copyIcon = document.getElementById("copy-icon");
+  const emailText = document.getElementById("email-text")?.innerText || '';
+  const copiedPopup = document.getElementById("copied-popup");
+
+  if (copyIcon) {
+    copyIcon.addEventListener("click", () => {
+      navigator.clipboard.writeText(emailText).then(() => {
+        copiedPopup.style.display = "inline";
+        setTimeout(() => { copiedPopup.style.display = "none"; }, 2000);
+      }).catch(err => console.error("Échec de la copie :", err));
+    });
+  }
+  </script>
+  
+</body>
+</html>
