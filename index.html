@@ -202,7 +202,62 @@ img:not(.popup-img) {
   cursor: default;
 }
 
+/* --- CTA Buttons --- */
+.cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
 
+/* --- Menu Modal Styling --- */
+.menu-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.menu-content {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--shadow);
+  position: relative;
+  font-family: Inter, system-ui;
+  animation: fadeIn 0.25s ease;
+}
+
+.menu-content h2 {
+  font-family: 'Playfair Display', serif;
+  color: #111;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.close-menu {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.close-menu:hover {
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
   </style>
 </head>
@@ -217,7 +272,7 @@ img:not(.popup-img) {
     </button>
   <a href="index.html" style="text-decoration: none; color: inherit;">
     <div class="brand" aria-hidden="false">
-      <span class="name">Mon Commerce</span>
+      <span class="name">Mon Restaurant</span>
       <span class="tag">Ma Spécialité — Toulouse</span>
     </div>
   </div>
@@ -242,17 +297,16 @@ img:not(.popup-img) {
       <div class="hero-left">
         <!--<h1>Autre Titre</h1>-->
               <div class="hero-right">
-        <img src="images/Ralph.jpg" alt="Vitrine">
+        <img src="images/Front.jpg" alt="Vitrine">
       </div>
         <div style="margin-top:12px;" class="muted">
-        <p class="lead">Produits et services de qualité, conçus avec passion et savoir-faire — votre satisfaction au cœur de notre engagement depuis 1963.</p>
+        <p class="lead">Produits et services de qualité, conçus avec passion et savoir-faire — votre satisfaction au cœur de notre engagement depuis 1907.</p>
         </div>
-          <div style="margin-top:12px;" class="muted">
-            <!-- <strong>Tel:</strong> <a href="tel:+33123456789">01 23 45 67 89</a>--> <!-- • -->
-            <strong>Email:</strong> <a href="mailto:contact@example.com"<span id="email-text">contact@example.com</span></a>
-              <i class="fa-regular fa-clone" id="copy-icon" style="cursor: pointer; margin-left: 8px;" title="Copy to clipboard"></i>
-              <span id="copied-popup" style="display:none; margin-left: 10px; color: blue; font-size: 0.8rem;">Copié !</span>
-        </div>
+
+<div class="cta-row">
+<a href="#" class="btn secondary" id="openMenu">Menu</a>
+<a href="reserver.html" class="btn secondary">Réserver</a>
+</div>
       </div>
     </header>
 
@@ -304,10 +358,10 @@ img:not(.popup-img) {
 <!-- ===== ADDITIONAL PHOTO ===== -->
     
   <section id="..." aria-labelledby="...-title">
-       <div class="section-title"><h2 id="...">Bienvenue dans ma boutique !</h2></div>
+       <div class="section-title"><h2 id="...">Bienvenue chez vous !</h2></div>
          <div class="hero-left">
               <div class="hero-right">
-        <img src="images/RecordStoreOwner.jpg" alt="Entrepreneur">
+        <img src="images/Chef.jpg" alt="Chef">
               </div>
  <div class="card">
           <!--<h3 style="margin:0 0 6px 0;">Services sur mesure</h3>-->
@@ -324,13 +378,13 @@ img:not(.popup-img) {
 
       <table class="hours" aria-describedby="horaires-desc">
         <tbody>
-          <tr><td>Lundi</td><td>9:00 — 19:00</td></tr>
-          <tr><td>Mardi</td><td>9:00 — 19:00</td></tr>
-          <tr><td>Mercredi</td><td>9:00 — 19:00</td></tr>
-          <tr><td>Jeudi</td><td>9:00 — 19:00</td></tr>
-          <tr><td>Vendredi</td><td>9:00 — 19:00</td></tr>
-          <tr><td>Samedi</td><td>9:00 — 13:00</td></tr>
-          <tr><td>Dimanche</td><td>Fermé</td></tr>
+          <tr><td>Lundi</td><td>Fermé</td></tr>
+          <tr><td>Mardi</td><td>12:00 — 14:00<br>19:00 — 22:00</td></tr>
+          <tr><td>Mercredi</td><td>12:00 — 14:00<br>19:00 — 22:00</td></tr>
+          <tr><td>Jeudi</td><td>12:00 — 14:00<br>19:00 — 22:00</td></tr>
+          <tr><td>Vendredi</td><td>12:00 — 14:00<br>19:00 — 22:00</td></tr>
+          <tr><td>Samedi</td><td>12:00 — 14:00<br>19:00 — 22:00</td></tr>
+          <tr><td>Dimanche</td><td>12:00 — 16:00</td></tr>
         </tbody>
       </table>
       <p id="horaires-desc" class="muted">Fermé les jours fériés —  Spécialités sur commande.</p>
@@ -341,9 +395,9 @@ img:not(.popup-img) {
     <section id="photos" aria-labelledby="photos-title">
       <div class="section-title"><h2 id="photos-title">Photos</h2><span class="muted">Notre Sélection</span></div>
       <div class="gallery" id="gallery">
-        <img loading="lazy" src="images/inside1.jpg" alt="inside 1" class="popup-img">
-        <img loading="lazy" src="images/inside2.jpeg" alt="inside 2" class="popup-img">
-        <img loading="lazy" src="images/inside3.jpg" alt="inside 3" class="popup-img">
+        <img loading="lazy" src="images/Table.png" alt="inside 1" class="popup-img">
+        <img loading="lazy" src="images/Restaurant.jpg" alt="inside 2" class="popup-img">
+        <img loading="lazy" src="images/Cocktail.jpg" alt="inside 3" class="popup-img">
       </div>
     </section>
 
@@ -480,6 +534,35 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // ---------- MENU MODAL ----------
+  const openMenuBtn = document.getElementById('openMenu');
+  const closeMenuBtn = document.getElementById('closeMenu');
+  const menuModal = document.getElementById('menuModal');
+
+  if (openMenuBtn && menuModal && closeMenuBtn) {
+    openMenuBtn.addEventListener('click', () => {
+      menuModal.style.display = 'flex';
+      menuModal.setAttribute('aria-hidden', 'false');
+    });
+
+    closeMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuModal.style.display = 'none';
+      menuModal.setAttribute('aria-hidden', 'true');
+    });
+
+    menuModal.addEventListener('click', (e) => {
+      if (e.target === menuModal) {
+        menuModal.style.display = 'none';
+        menuModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+});
+</script>
   
 <!-- Modal viewer -->
 
@@ -487,5 +570,20 @@ document.addEventListener('DOMContentLoaded', function () {
   <img id="modalImg" alt="">
 </div>
 
+<!-- Menu Modal -->
+<div class="menu-modal" id="menuModal" aria-hidden="true">
+  <div class="menu-content">
+    <button class="close-menu" id="closeMenu" aria-label="Fermer le menu">&times;</button>
+    <h2>Notre Menu</h2>
+    <p class="muted">Découvrez nos spécialités, nos plats faits maison, et nos produits du terroir.</p>
+    <ul class="muted">
+      <!--<li>🍯 Tartine au miel artisanal</li>-->
+      <li>🥖 Pain de campagne croustillant</li>
+      <li>🧀 Plateau de fromages régionaux</li>
+      <li>🍷 Sélection de vins de Toulouse</li>
+    </ul>
+  </div>
+</div>
+  
 </body>
 </html>
