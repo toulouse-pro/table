@@ -681,10 +681,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-  <!-- === COOKIE POPUP (Compact Centered) === -->
+  <!-- === COOKIE POPUP (Compact Centered, OK / Pas OK) === -->
 <div id="cookie-banner" class="cookie-banner" aria-hidden="false">
   <span>🍪 Ce site utilise des cookies.</span>
-  <button id="cookie-accept" class="cookie-btn">OK</button>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="cookie-btn accept">OK</button>
+    <button id="cookie-decline" class="cookie-btn decline">Pas OK</button>
+  </div>
 </div>
 
 <style>
@@ -708,20 +711,39 @@ document.addEventListener('DOMContentLoaded', function () {
   animation: fadeIn 0.3s ease;
 }
 
-.cookie-btn {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(217,154,59,0.2);
-  transition: background 0.2s ease;
+.cookie-actions {
+  display: flex;
+  gap: 6px;
 }
 
-.cookie-btn:hover {
+.cookie-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cookie-btn.accept {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(217,154,59,0.2);
+}
+
+.cookie-btn.accept:hover {
   background: #c5862e;
+}
+
+.cookie-btn.decline {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.cookie-btn.decline:hover {
+  color: #111;
+  border-color: rgba(0,0,0,0.2);
 }
 
 @keyframes fadeIn {
@@ -734,20 +756,30 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
 
-  if (localStorage.getItem('cookieConsent') === 'true') {
+  if (localStorage.getItem('cookieConsent') === 'true' || localStorage.getItem('cookieConsent') === 'false') {
     banner.style.display = 'none';
     banner.setAttribute('aria-hidden', 'true');
   }
 
   acceptBtn.addEventListener('click', function () {
     localStorage.setItem('cookieConsent', 'true');
+    hideBanner();
+  });
+
+  declineBtn.addEventListener('click', function () {
+    localStorage.setItem('cookieConsent', 'false');
+    hideBanner();
+  });
+
+  function hideBanner() {
     banner.style.opacity = '0';
     setTimeout(() => {
       banner.style.display = 'none';
       banner.setAttribute('aria-hidden', 'true');
     }, 300);
-  });
+  }
 });
 </script>
   
