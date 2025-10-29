@@ -21,8 +21,7 @@
       line-height: 1.2;
     }
 
-    /* Bouton retour */
-    .top-btn {
+.top-btn {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -41,12 +40,7 @@
       width: var(--max-width);
       max-width: 80%;
     }
-   /* .top-btn:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: scale(1.02);
-    }*/
-    .top-btn::before {
+   .top-btn::before {
       content: "←";
       color: #fff; /* flèche blanche */
       -webkit-text-stroke: 1px var(--accent); /* contour rouge */
@@ -60,7 +54,7 @@
       flex-direction: column;
       align-items: center;
       gap: 16px;
-      padding: 12px;
+      padding: 7px 12px;
     }
 
     /* Cartes pricing */
@@ -113,6 +107,187 @@
       .card h2 { font-size: 1.2rem; }
       .card h3 { font-size: 0.95rem; }
     }
+
+.cta-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .cta-row .btn {
+      flex: 1 1 calc(50% - 6px);
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+.menu-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-modal.visible {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.3s ease;
+}
+
+.menu-content {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  max-width: 300px;
+  width: fit-content;
+  text-align: center;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-menu {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+/* Buttons */
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/*.btn:hover {
+  background: #c62828;
+  transform: scale(1.03);
+}*/
+
+.btn.secondary {
+  background: #fff;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/*.btn.secondary:hover {
+  background: var(--accent);
+  color: #fff;
+}*/
+
+/* Popup content sizing */
+.menu-content {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  max-width: 400px;      /* ✅ limits popup width */
+  width: 90%;            /* ✅ responsive */
+  text-align: left;      /* ✅ natural text alignment */
+  overflow-y: auto;
+ /* max-width: 500px;
+  width: 90%;
+  max-height: 80vh;    
+  overflow-y: auto;       
+  text-align: center;
+  position: relative;*/
+}
+
+    .menu-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Mobile-friendly tweaks */
+@media (max-width: 600px) {
+  .menu-content {
+    padding: 16px;
+    max-width: 95%;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+}
+    .menu-content::-webkit-scrollbar {
+  width: 6px;
+}
+.menu-content::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+    p + ul { margin-top: 4px; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+    @media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+    /*img, .gallery img {
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+    }*/
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+}
+    
+    img.popup-img { cursor: pointer; }
+    img:not(.popup-img) { cursor: default; }
+
+.card ul {
+  text-align: left;
+  margin: 0 auto;
+  display: inline-block;
+  padding-left: 20px;
+  padding: 10px;
+  color: #555;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
   </style>
 </head>
 
