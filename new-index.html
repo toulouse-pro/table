@@ -188,11 +188,23 @@
       font-size: 0.95rem;
     }
 
-    .gallery {
+    /*.gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
       gap: 12px;
-    }
+    }*/
+
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 400px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
     .hours {
       width: 100%;
