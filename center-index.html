@@ -26,7 +26,7 @@
 
     html, body { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: var(--bg); color: #111; -webkit-font-smoothing: antialiased; line-height: 1.5; }
 
-    .topbar {
+  /*  .topbar {
       position: fixed;
       top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; gap: 12px; align-items: center;
@@ -34,7 +34,16 @@
       background: var(--bg);
       box-shadow: var(--shadow);
       border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
+    }*/
+
+    .topbar .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+}
 
     .hamburger {
       width: 44px; height: 44px;
@@ -187,12 +196,6 @@
       color: var(--muted);
       font-size: 0.95rem;
     }
-
-    /*.gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-      gap: 12px;
-    }*/
 
     .gallery {
   display: grid;
@@ -402,6 +405,7 @@
 
 <body>
   <div class="topbar">
+     <div class="inner">
     <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">
       <span class="bars"></span>
     </button>
@@ -411,6 +415,7 @@
         <span class="tag">Ma Spécialité — Toulouse</span>
       </div>
     </a>
+     </div>
   </div>
 
   <nav class="site-nav" id="site-nav" aria-hidden="true">
